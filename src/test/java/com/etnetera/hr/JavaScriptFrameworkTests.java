@@ -8,7 +8,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 /**
  * Class used for Spring Boot/MVC based tests.
  * 
- * @author Etnetera
+ * @author Etnetera, Petr Kadlec
  *
  */
 @RunWith(SpringRunner.class)
