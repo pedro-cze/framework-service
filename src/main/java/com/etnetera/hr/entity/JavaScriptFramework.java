@@ -12,13 +12,13 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -42,14 +42,13 @@ public class JavaScriptFramework {
     @Column(nullable = false, length = 30)
     private String name;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name="versions", joinColumns = @JoinColumn(name="framework_id"))
     @Column
-    private Set<String> version;
+    private Set<String> version = new HashSet<>();
 
     @Column
-    @Temporal(TemporalType.DATE)
-    private Date deprecationDate;
+    private LocalDate deprecationDate;
 
     @Column
     @Enumerated(value = EnumType.STRING)

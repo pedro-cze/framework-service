@@ -2,14 +2,14 @@ package com.etnetera.hr.dto;
 
 import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Set;
 
 @Data
 public class JavaScriptFrameworkRequestDto {
 
     private String name;
-    private Date deprecationDate;
+    private LocalDate deprecationDate;
     private HypeLevel hypeLevel;
     private Set<String> version;
 
