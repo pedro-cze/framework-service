@@ -6,16 +6,20 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * Simple data entity describing basic properties of every JavaScript framework.
@@ -38,8 +42,10 @@ public class JavaScriptFramework {
     @Column(nullable = false, length = 30)
     private String name;
 
-//    @Column
-//    private String version; // TODO
+    @ElementCollection
+    @CollectionTable(name="versions", joinColumns = @JoinColumn(name="framework_id"))
+    @Column
+    private Set<String> version;
 
     @Column
     @Temporal(TemporalType.DATE)

@@ -13,19 +13,18 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class JavascriptFrameworkServiceImpl implements JavascriptFrameworkService {
 
     private final JavaScriptFrameworkRepository repository;
 
     @Override
-    @Transactional(readOnly = true)
     public List<JavaScriptFramework> fetchArticles() {
         return repository.findAll();
     }
 
     @Override
-    @Transactional
     public JavaScriptFramework createFramework(JavaScriptFramework javaScriptFramework) {
         var framework = repository.findByName(javaScriptFramework.getName());
         if (framework.isPresent()) {
@@ -35,7 +34,6 @@ public class JavascriptFrameworkServiceImpl implements JavascriptFrameworkServic
     }
 
     @Override
-    @Transactional
     public UpdateResult updateFramework(Long id, JavaScriptFramework javaScriptFramework) {
         var entity = repository.findById(id);
         repository.save(javaScriptFramework);
