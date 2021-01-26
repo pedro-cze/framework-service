@@ -50,7 +50,7 @@ public class JavascriptFrameworkServiceImpl implements JavascriptFrameworkServic
     public void deleteFramework(Long id) {
         var entity = repository.findById(id);
         if (entity.isEmpty()) {
-            throw new FrameworkNotFoundException("");
+            throw new FrameworkNotFoundException("Framework for given id not found.");
         }
         repository.delete(entity.get());
     }

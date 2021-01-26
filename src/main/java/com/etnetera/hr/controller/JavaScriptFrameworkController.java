@@ -97,7 +97,7 @@ public class JavaScriptFrameworkController {
 
 	@DeleteMapping(path = "/{id}")
 	@ApiResponses(value = {
-			@ApiResponse(code = 200, message = "The resource got deleted successfully."),
+			@ApiResponse(code = 204, message = "The resource got deleted successfully."),
 			@ApiResponse(code = 404, message = "The resource was not found for given id."),
 	})
 	public ResponseEntity<Void> deleteFramework(@PathVariable final Long id) {
