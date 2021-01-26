@@ -29,6 +29,9 @@ dependencies {
 	annotationProcessor "org.mapstruct:mapstruct-processor:$mapstructVersion"
 
 	testImplementation "org.springframework.boot:spring-boot-starter-test"
+	testImplementation "org.junit.jupiter:junit-jupiter-api"
+	testImplementation "org.junit.jupiter:junit-jupiter-engine"
+
 	testAnnotationProcessor "org.projectlombok:lombok:$lombokVersion"
 	testCompileOnly "org.projectlombok:lombok:$lombokVersion"
 }
