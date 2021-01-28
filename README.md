@@ -21,3 +21,24 @@ java jar ./build/libs/java-test-default-0.0.1-SNAPSHOT.jar
 ```
 ## Swagger
 There is swagger-ui endpoint that serves api documentation on `/swagger-ui.html`.
+
+## Postman collection
+There is a postman collection + environment files included in /docs
+
+### Search Note 
+Search functionality allows searching for saved frameworks. Allowed predicates include:
+- `:` - equal
+- `>` - grater then
+- `<` - less then
+Search params are handled inside the body request which can have following form:
+```json
+[
+  {
+    "paramName": "name",
+    "operation": ":",
+    "value": "Vue JS"
+  }
+]
+```
+If there are more than one search param included inside the request, then those are combined with AND operator.
+The OR operation is not supported.
